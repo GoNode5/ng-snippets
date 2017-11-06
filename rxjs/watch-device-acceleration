@@ -1,0 +1,11 @@
+ origin Ben Chiciudean @benydc
+// Watch device acceleration
+        let deviceMotionSub = this.deviceMotion
+            .watchAcceleration(this.deviceMotionOpts)
+            .filter(result => result.y > 8.5 && result.y < 9.5)
+            .take(1)
+            .toPromise()
+            .then((acceleration: DeviceMotionAccelerationData) => {
+                console.log(acceleration);
+                this.someFunction.placeModel();
+            })
